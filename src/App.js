@@ -14,7 +14,7 @@ class App extends React.Component {
     .then(res => {
       this.setState({
         ...this.state,
-        getProfile: res.data,
+        gitProfile: res.data,
       })
     })
     .catch(err => {
@@ -43,7 +43,7 @@ class App extends React.Component {
     .then(res => {
       this.setState({
         ...this.state,
-        getProfile: res.data,
+        gitProfile: res.data,
       })
     })
     .catch(err => {
@@ -64,14 +64,17 @@ class App extends React.Component {
 
   render() {
     return(<div>
-      <h1>Github Card</h1>
-      <form>
+     <h1>Github Card</h1>
+     <form>
         <input onChange={this.handleChange} type='text' placeholder='Github Profile' value ={this.state.user}/>
         <button onClick={this.handleClick}>Lookup</button>
       </form>
       <User gitProfile={this.state.gitProfile}/>
       <h1>Followers List</h1>
       <FollowerList followers={this.state.followers}/>
+      {/* 
+      
+       */}
     </div>);
   }
 }
