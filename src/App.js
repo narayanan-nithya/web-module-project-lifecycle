@@ -8,7 +8,7 @@ class App extends React.Component {
     followers:[]
   }
   componentDidMount(){
-    axios.get('https://github.com/narayanan-nithya')
+    axios.get(`https://api.github.com/users/NithyaNarayanan`)
     .then(res => {
       this.setState({
         ...this.state,
@@ -18,7 +18,7 @@ class App extends React.Component {
     .catch(err => {
       console.error(err)
     })
-    axios.get('https://github.com/narayanan-nithya/followers')
+    axios.get(`https://api.github.com/users/NithyaNarayanan/followers`)
     .then(resp => {
       this.setState({
         ...this.state,
@@ -30,6 +30,35 @@ class App extends React.Component {
     })
   }
 
+  handleChange = (e) =>{
+    this.setState({
+      ...this.state,
+      user: e.target.value})
+  }
+  handleClick = (e) =>{
+    e.preventDefault();
+    axios.get(`https://api.github.com/users/${this.state.user}`)
+    .then(res => {
+      this.setState({
+        ...this.state,
+        getProfile: res.data,
+      })
+    })
+    .catch(err => {
+      console.error(err)
+    })
+    axios.get(`https://api.github.com/users/${this.state.user}/followers`)
+    .then(resp => {
+      this.setState({
+        ...this.state,
+        followers: resp.data,
+      })
+    })
+    .catch(err => {
+      console.error(err)
+    })
+
+  }
 
   render() {
     return(<div>
