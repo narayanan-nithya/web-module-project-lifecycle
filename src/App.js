@@ -1,4 +1,6 @@
 import React from 'react';
+import User from './components/User.js';
+import FollowerList from './components/FollowerList.js';
 import axios from 'axios';
 
 class App extends React.Component {
