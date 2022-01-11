@@ -10,7 +10,7 @@ class App extends React.Component {
     followers:[]
   }
   componentDidMount(){
-    axios.get(`https://api.github.com/users/NithyaNarayanan`)
+    axios.get('https://api.github.com/users/narayanan-nithya')
     .then(res => {
       this.setState({
         ...this.state,
@@ -20,7 +20,7 @@ class App extends React.Component {
     .catch(err => {
       console.error(err)
     })
-    axios.get(`https://api.github.com/users/NithyaNarayanan/followers`)
+    axios.get(`https://api.github.com/users/narayanan-nithya/followers`)
     .then(resp => {
       this.setState({
         ...this.state,
